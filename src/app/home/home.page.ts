@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { Cliente } from '../models/Cliente.model';
 import { ClientesService } from '../services/clientes.service';
@@ -8,7 +10,7 @@ import { ClientesService } from '../services/clientes.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonicModule],
+  imports: [IonicModule, CommonModule, RouterLink],
 })
 export class HomePage {
 

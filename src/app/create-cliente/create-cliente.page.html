@@ -1,13 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>create-cliente</ion-title>
+    <ion-title>Add Cliente</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">create-cliente</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-input type="text" fill="outline" label="Nome" labelPlacement="floating"
+  helperText="Digite o nome completo" [(ngModel)]="nome"></ion-input>
+<br>
+  <ion-input type="text" fill="outline" label="Email" labelPlacement="floating"
+  helperText="Coloque seu E-mail" [(ngModel)]="email"></ion-input>
+<br>
+  <ion-input type="text" fill="outline" label="Senha" labelPlacement="floating"
+  helperText="Digite uma senha" minlength="4" [(ngModel)]="senha"></ion-input>
+<br>
+  <ion-input type="text" fill="outline" label="Confirme a senha" labelPlacement="floating"
+  helperText="Digite a senha novamente" minlength="4" [(ngModel)]="confirmasenha"></ion-input>
+<br>
+
+  <ion-button expand="block">
+    SALVAR
+  </ion-button>
 </ion-content>
