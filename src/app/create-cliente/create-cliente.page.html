@@ -1,24 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Add Cliente</ion-title>
+    <ion-title>Cadastro de Cliente</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-input type="text" fill="outline" label="Nome" labelPlacement="floating"
-  helperText="Digite o nome completo" [(ngModel)]="nome"></ion-input>
-<br>
-  <ion-input type="text" fill="outline" label="Email" labelPlacement="floating"
-  helperText="Coloque seu E-mail" [(ngModel)]="email"></ion-input>
-<br>
-  <ion-input type="text" fill="outline" label="Senha" labelPlacement="floating"
-  helperText="Digite uma senha" minlength="4" [(ngModel)]="senha"></ion-input>
-<br>
-  <ion-input type="text" fill="outline" label="Confirme a senha" labelPlacement="floating"
-  helperText="Digite a senha novamente" minlength="4" [(ngModel)]="confirmasenha"></ion-input>
-<br>
+<ion-content [fullscreen]="true" >
+ <ion-card>
+  <ion-item>
+    <ion-input labelPlacement="floating" type="text" label="Nome: " [(ngModel)]="nome"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input labelPlacement="floating" type="email" label="Email:" [(ngModel)]="email" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input labelPlacement="floating" type="password" label="Senha: " [(ngModel)]="senha"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input helperText="Igual o de cima" labelPlacement="floating" type="password" label="Confirme sua senha:" [(ngModel)] = "confirmeSenha"></ion-input>
+  </ion-item>
+ </ion-card>
 
   <ion-button expand="block">
-    SALVAR
+    Salvar
   </ion-button>
+
 </ion-content>

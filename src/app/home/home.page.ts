@@ -1,9 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { Cliente } from '../models/Cliente.model';
 import { ClientesService } from '../services/clientes.service';
+import { Cliente } from '../models/Cliente.model';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,15 +14,15 @@ import { ClientesService } from '../services/clientes.service';
 })
 export class HomePage {
 
-listaClientes: Cliente[] = [];
+  listaClientes: Cliente[] = [];
 
-  constructor(private clienteServices: ClientesService) {
+  constructor(private clientesService: ClientesService) {
     this.buscarClientes();
   }
 
-  buscarClientes(){
-    this.clienteServices.getAll().subscribe(dados =>{
-      this.listaClientes = dados as Cliente[];
+  buscarClientes() {
+    this.clientesService.getAll().subscribe(dados => {
+        this.listaClientes = dados;
     });
   }
 }
