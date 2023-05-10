@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Produto } from '../models/Produto.Model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-produtos',
@@ -12,21 +13,29 @@ import { Produto } from '../models/Produto.Model';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class ListaProdutosPage implements OnInit {
+export class ListaProdutosPage {
 
   listaProdutos: Produto[] = []
 
-  constructor(private produtosService: ProdutosService) {
+  constructor(private produtosService: ProdutosService, private router: Router) {
+
+  }
+
+  ionViewWillEnter() {
     this.buscarProdutos();
   }
 
-  ngOnInit() {
-  }
-
-  buscarProdutos(){
+  buscarProdutos() {
     this.produtosService.getAll().subscribe(dados => {
       this.listaProdutos = dados as Produto[];
     });
   }
 
+  alterarProduto(id: number) {
+    this.router.navigateByUrl(`/alterar-produto/${id}`);
+  }
+
+  excluirProduto(id: number) {
+
+  }
 }
