@@ -7,34 +7,34 @@ import { Produto } from '../models/Produto.Model';
 import { ProdutosService } from '../services/produtos.service';
 
 @Component({
-    selector: 'app-create-produto',
-    templateUrl: './create-produto.page.html',
-    styleUrls: ['./create-produto.page.scss'],
-    standalone: true,
-    imports: [IonicModule, CommonModule, FormsModule]
+  selector: 'app-create-produto',
+  templateUrl: './create-produto.page.html',
+  styleUrls: ['./create-produto.page.scss'],
+  standalone: true,
+  imports: [IonicModule, CommonModule, FormsModule]
 })
 export class CreateProdutoPage implements OnInit {
 
-    titulo = '';
-    descricao = '';
-    preco = '';
+  titulo = '';
+  descricao = '';
+  preco = 0;
 
-    constructor(private router: Router, private produtosService: ProdutosService) { }
+  constructor(private router: Router, private produtosService: ProdutosService) { }
 
-    ngOnInit() {
+  ngOnInit() {
+  }
+    
+
+   salvar(){
+    const produto: Produto = {
+      titulo: this.titulo,
+      descricao: this.descricao,
+      preco: this.preco
     }
-
-
-    salvar() {
-        const produto: Produto = {
-            titulo: this.titulo,
-            descricao: this.descricao,
-            preco: this.preco
-        }
-        this.produtoService.create(produto).subscribe(dados => {
-            alert("Produto inserido com sucesso, id: " + dados.id)
-            this.router.navigateByUrl('/lista-produtos');
-        })
-    }
+    this.produtosService.create(produto).subscribe(dados => {
+      alert("Produto inserido com sucesso, id: " + dados.id)
+      this.router.navigateByUrl('/lista-produtos');
+    })
+  }
 
 }

@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-item *ngFor="let produto of listaProdutos">
     <ion-label>
       <h1>{{produto.titulo}}</h1>
@@ -22,4 +22,5 @@
   <ion-button routerLink="/create-produto">
     Adicionar Produto
   </ion-button>
+
 </ion-content>

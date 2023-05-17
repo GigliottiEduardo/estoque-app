@@ -4,38 +4,38 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Produto } from '../models/Produto.Model';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-lista-produtos',
   templateUrl: './lista-produtos.page.html',
   styleUrls: ['./lista-produtos.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink]
 })
 export class ListaProdutosPage {
 
   listaProdutos: Produto[] = []
 
-  constructor(private produtosService: ProdutosService, private router: Router) {
+  constructor(private produtosService: ProdutosService, private router: Router) { 
 
   }
 
-  ionViewWillEnter() {
+  ionViewWillEnter(){
     this.buscarProdutos();
   }
 
-  buscarProdutos() {
+  buscarProdutos(){
     this.produtosService.getAll().subscribe(dados => {
-      this.listaProdutos = dados as Produto[];
+      this.listaProdutos = dados;
     });
   }
 
-  alterarProduto(id: number) {
+  alterarProduto(id: number){
     this.router.navigateByUrl(`/alterar-produto/${id}`);
   }
 
-  excluirProduto(id: number) {
-
+  excluirProduto(id: number){
+    
   }
 }
